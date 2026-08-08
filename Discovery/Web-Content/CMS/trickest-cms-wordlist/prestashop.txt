@@ -920,6 +920,9 @@ admin-dev/themes/new-theme/js/app/pages/stock/index.ts
 admin-dev/themes/new-theme/js/app/pages/stock/mixins/translate.ts
 admin-dev/themes/new-theme/js/app/pages/stock/mixins/product-desc.ts
 admin-dev/themes/new-theme/js/app/pages/stock/router/index.ts
+admin-dev/themes/new-theme/js/pages/business-entity/form/business-entity-form-map.ts
+admin-dev/themes/new-theme/js/pages/business-entity/form/business-entity-address-collection.ts
+admin-dev/themes/new-theme/js/pages/business-entity/form/index.ts
 admin-dev/themes/new-theme/js/pages/webservice/index.ts
 admin-dev/themes/new-theme/js/pages/webservice/permissions-row-selector.ts
 admin-dev/themes/new-theme/js/pages/zone/index.ts
@@ -1274,6 +1277,7 @@ admin-dev/themes/new-theme/js/pages/credit-slip/index.ts
 admin-dev/themes/new-theme/js/pages/customer-preferences/index.ts
 admin-dev/themes/new-theme/js/pages/customer-preferences/customer-preferences-map.ts
 admin-dev/themes/new-theme/js/pages/search/index.ts
+admin-dev/themes/new-theme/js/libs/chartjs.ts
 admin-dev/themes/new-theme/js/product-page/product-search-autocomplete.js
 admin-dev/themes/new-theme/js/product-page/product-bulk-combinations.js
 admin-dev/themes/new-theme/js/product-page/nested-categories.js
@@ -3267,6 +3271,7 @@ tests/Unit/Core/Grid/Filter/FilterCollectionTest.php
 tests/Unit/Core/Grid/Column/ColumnCollectionTest.php
 tests/Unit/Core/Grid/Column/ActionColumnTest.php
 tests/Unit/Core/Grid/Query/Filter/DoctrineFilterApplicatorTest.php
+tests/Unit/Core/Grid/Query/TaxRuleQueryBuilderTest.php
 tests/Unit/Core/Grid/Query/DoctrineQueryParserTest.php
 tests/Unit/Core/Grid/Query/TaxRulesGroupQueryBuilderTest.php
 tests/Unit/Core/Grid/Position/GridPositionUpdaterTest.php
@@ -3285,6 +3290,7 @@ tests/Unit/Core/Security/HashingTest.php
 tests/Unit/Core/Security/HtaccessFolderGuardTest.php
 tests/Unit/Core/Payment/PaymentOptionTest.php
 tests/Unit/Core/Payment/PaymentOptionFormDecoratorTest.php
+tests/Unit/Core/Module/SourceHandler/TarSourceHandlerTest.php
 tests/Unit/Core/Module/SourceHandler/ZipSourceHandlerTest.php
 tests/Unit/Core/Module/SourceHandler/SourceHandlerFactoryTest.php
 tests/Unit/Core/Module/SourceHandler/RemoteZipSourceHandlerTest.php
@@ -3306,6 +3312,9 @@ tests/Unit/Core/Image/ImageFormatConfigurationTest.php
 tests/Unit/Core/Image/Deleter/ImageFileDeleterTest.php
 tests/Unit/Core/Domain/Store/ValueObject/StoreIdTest.php
 tests/Unit/Core/Domain/CustomerService/ValueObject/CustomerThreadStatusTest.php
+tests/Unit/Core/Domain/BusinessEntity/Command/AddBusinessEntityCommandTest.php
+tests/Unit/Core/Domain/BusinessEntity/ValueObject/BusinessEntityIdTest.php
+tests/Unit/Core/Domain/BusinessEntity/ValueObject/BusinessEntityGeneralInformationTest.php
 tests/Unit/Core/Domain/ApiClient/ApiClientConstraintExceptionTest.php
 tests/Unit/Core/Domain/TaxRulesGroup/Command/EditTaxRulesGroupCommandTest.php
 tests/Unit/Core/Domain/TaxRulesGroup/Command/AddTaxRulesGroupCommandTest.php
@@ -3323,6 +3332,7 @@ tests/Unit/Core/Domain/OrderReturn/QueryResult/OrderReturnForEditingReturnTest.p
 tests/Unit/Core/Domain/OrderReturn/ValueObject/OrderReturnIdTest.php
 tests/Unit/Core/Domain/SpecificPrice/ValueObject/PriorityListTest.php
 tests/Unit/Core/Domain/Alias/ValueObject/AliasIdTest.php
+tests/Unit/Core/Domain/ExtraProperty/Exception/ExtraPropertyRegistrationFailureExceptionTest.php
 tests/Unit/Core/Domain/CmsPageCategory/Command/AddCmsPageCategoryCommandTest.php
 tests/Unit/Core/Domain/CmsPageCategory/Command/EditCmsPageCategoryCommandTest.php
 tests/Unit/Core/Domain/Carrier/ValueObject/CarrierReferenceIdTest.php
@@ -3371,6 +3381,7 @@ tests/Unit/Core/Domain/Product/Query/SearchCombinationsForAssociationTest.php
 tests/Unit/Core/Domain/Product/Query/SearchProductsForAssociationTest.php
 tests/Unit/Core/Domain/Product/SpecificPrice/ValueObject/SpecificPriceIdTest.php
 tests/Unit/Core/Domain/Product/Combination/Command/UpdateCombinationStockAvailableCommandTest.php
+tests/Unit/Core/Domain/Product/Combination/FeatureValue/Command/SetCombinationFeatureValuesCommandTest.php
 tests/Unit/Core/Domain/Product/ValueObject/ProductIdTest.php
 tests/Unit/Core/Domain/Product/ValueObject/ReferenceTest.php
 tests/Unit/Core/Domain/Product/ValueObject/RedirectOptionTest.php
@@ -3450,6 +3461,7 @@ tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/Combi
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationImagesCommandsBuilderTest.php
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationSuppliersCommandsBuilderTest.php
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/UpdateCombinationCommandsBuilderTest.php
+tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationFeatureValuesCommandsBuilderTest.php
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/UpdateCombinationStockAvailableCommandsBuilderTest.php
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/AbstractProductCommandBuilderTestCase.php
 tests/Unit/Core/Form/IdentifiableObject/CommandBuilder/Product/PackedProductsCommandsBuilderTest.php
@@ -3570,6 +3582,7 @@ tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSUpdateTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSPaginateTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSGetTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSCreateTest.php
+tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/Resource/Factory/CoreVersionCompatibilityMetadataCollectionFactoryDecoratorTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSPartialUpdateTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSGetCollectionTest.php
 tests/Unit/PrestaShopBundle/ApiPlatform/Metadata/CQRSCommandTest.php
@@ -4694,6 +4707,7 @@ tests/Integration/Core/Localization/Locale/RepositoryTest.php
 tests/Integration/Core/Localization/Currency/DataLayer/CurrencyDatabaseTest.php
 tests/Integration/Core/ExtraProperty/Value/ExtraPropertyReaderTest.php
 tests/Integration/Core/ExtraProperty/ExtraPropertiesFormBuilderModifierTest.php
+tests/Integration/Core/ExtraProperty/Definition/ExtraPropertyRegistryTest.php
 tests/Integration/Core/Import/File/FileFinderTest.php
 tests/Integration/Core/Configuration/AbstractMultistoreConfigurationTest.php
 tests/Integration/Core/Module/ModuleRepositoryTest.php
@@ -4708,6 +4722,7 @@ tests/Integration/Core/Pricing/PricingServiceWiringTest.php
 tests/Integration/Core/Pricing/Cart/Provider/DatabaseCartProductProviderTest.php
 tests/Integration/Core/Pricing/Product/Provider/CatalogProductProviderTest.php
 tests/Integration/ApiPlatform/AdminAPIFeatureListenerTest.php
+tests/Integration/ApiPlatform/VersionedEndpointsTest.php
 tests/Integration/ApiPlatform/ApiSecurityTest.php
 tests/Integration/ApiPlatform/Serializer/CQRSApiSerializerTest.php
 tests/Integration/ApiPlatform/EndPoint/ApiClientEndpointTest.php
@@ -4773,6 +4788,7 @@ tests/Integration/PrestaShopBundle/Controller/Admin/Improve/International/Countr
 tests/Integration/PrestaShopBundle/Controller/Admin/Improve/International/GeolocationControllerTest.php
 tests/Integration/PrestaShopBundle/Controller/Admin/Improve/International/StateControllerTest.php
 tests/Integration/PrestaShopBundle/TranslationIntegrationTest.php
+tests/Integration/PrestaShopBundle/ApiPlatform/QueryProviderTest.php
 tests/Integration/PrestaShopBundle/ApiPlatform/CQRSOpenApiFactoryTest.php
 tests/Integration/PrestaShopBundle/Entity/Repository/LangRepositoryTest.php
 tests/Integration/PrestaShopBundle/Admin/Security/SessionRenewerTest.php
@@ -4788,6 +4804,7 @@ tests/Integration/PrestaShopBundle/Form/Admin/Sell/Product/EventListener/Product
 tests/Integration/PrestaShopBundle/Form/Admin/Sell/Product/EventListener/VirtualProductFileListenerTest.php
 tests/Integration/PrestaShopBundle/Form/Admin/Sell/Product/EventListener/CombinationListenerTest.php
 tests/Integration/PrestaShopBundle/Form/Admin/Sell/Product/EventListener/RedirectOptionListenerTest.php
+tests/Integration/PrestaShopBundle/Form/Admin/Configure/AdvancedParameters/Employee/EmployeeTypeTest.php
 tests/Integration/PrestaShopBundle/Form/TestDataTransformer.php
 tests/Integration/Adapter/Tax/TaxComputerTest.php
 tests/Integration/Adapter/DatabaseTest.php
@@ -4840,6 +4857,7 @@ tests/Integration/Classes/Checkout/CheckoutAddressesStepTest.php
 tests/Integration/Classes/AccessTest.php
 tests/Integration/Classes/Smarty/SmartySettingsTest.php
 tests/Integration/Classes/ImageGetCoverShopScopeTest.php
+tests/Integration/Classes/GetFrontFeaturesStaticTest.php
 tests/Integration/Classes/LinkTest.php
 tests/Integration/Classes/TabTest.php
 tests/Integration/Behaviour/behat.yml
@@ -4857,6 +4875,7 @@ tests/Integration/Behaviour/Features/Scenario/Misc/theme_mail_templates.feature
 tests/Integration/Behaviour/Features/Scenario/Misc/showcase_card.feature
 tests/Integration/Behaviour/Features/Scenario/Tax/tax_management.feature
 tests/Integration/Behaviour/Features/Scenario/QuickAccess/quick_access_management.feature
+tests/Integration/Behaviour/Features/Scenario/BusinessEntity/business_entity_management.feature
 tests/Integration/Behaviour/Features/Scenario/Tag/tag_management.feature
 tests/Integration/Behaviour/Features/Scenario/ApiClient/api_client_management.feature
 tests/Integration/Behaviour/Features/Scenario/TaxRulesGroup/tax_rule_group_management.feature
@@ -5090,6 +5109,7 @@ tests/Integration/Behaviour/Features/Scenario/Product/Combination/Shop/delete_co
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/combinations_listing.feature
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/generate_combinations.feature
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/set_default_combination.feature
+tests/Integration/Behaviour/Features/Scenario/Product/Combination/update_combination_feature_values.feature
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/delete_combination.feature
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/update_combination_images.feature
 tests/Integration/Behaviour/Features/Scenario/Product/Combination/search_combinations_for_association.feature
@@ -5247,6 +5267,7 @@ tests/Integration/Behaviour/Features/Context/Domain/CustomerFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/TitleFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/CountryFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/FeatureFeatureContext.php
+tests/Integration/Behaviour/Features/Context/Domain/BusinessEntityFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/StateFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/OrderStateFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/CategoryFeatureContext.php
@@ -5303,6 +5324,7 @@ tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/SearchPr
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/CombinationStockMovementsFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/CombinationAssertionFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/UpdateCombinationFeatureContext.php
+tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/UpdateCombinationFeatureValuesFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/CombinationShopFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/UpdateCombinationImagesFeatureContext.php
 tests/Integration/Behaviour/Features/Context/Domain/Product/Combination/CombinationListingFeatureContext.php
@@ -5565,6 +5587,7 @@ tests/Resources/modules/ps_emailalerts/mails/en/customer_qty.txt
 tests/Resources/download/.gitkeep
 tests/Resources/Translator/DummyTranslator.php
 tests/Resources/dummyFile/dummy_zip.zip
+tests/Resources/dummyFile/valid_module.tar.gz
 tests/Resources/dummyFile/valid_module.zip
 tests/Resources/dummyFile/test_text_file.txt
 tests/Resources/dummyFile/invalid_module.zip
@@ -6223,8 +6246,8 @@ src/Core/ExtraProperty/Grid/ExtraPropertiesGridQueryBuilderModifier.php
 src/Core/ExtraProperty/Schema/ColumnDefinitionMapper.php
 src/Core/ExtraProperty/Schema/ExtraPropertySchemaManagerInterface.php
 src/Core/ExtraProperty/Schema/ExtraPropertySchemaManager.php
+src/Core/ExtraProperty/Exception/ExtraPropertyRegistryException.php
 src/Core/ExtraProperty/Exception/InvalidExtraPropertyDefinitionException.php
-src/Core/ExtraProperty/Exception/InvalidExtraPropertyFormOptionsException.php
 src/Core/ExtraProperty/Exception/InvalidExtraPropertyConstraintException.php
 src/Core/ExtraProperty/Exception/ExtraPropertyException.php
 src/Core/ExtraProperty/Exception/UnknownExtraPropertyConstraintException.php
@@ -6937,6 +6960,7 @@ src/Core/Payment/PaymentOption.php
 src/Core/Payment/PaymentModulePreferencesConfiguration.php
 src/Core/Payment/PaymentOptionFormDecorator.php
 src/Core/Encoding/CharsetEncoding.php
+src/Core/Module/SourceHandler/TarSourceHandler.php
 src/Core/Module/SourceHandler/RemoteZipSourceHandler.php
 src/Core/Module/SourceHandler/SourceHandlerInterface.php
 src/Core/Module/SourceHandler/SourceHandlerFactory.php
@@ -7164,6 +7188,17 @@ src/Core/Domain/QuickAccess/CommandHandler/AddQuickAccessHandlerInterface.php
 src/Core/Domain/QuickAccess/CommandHandler/BulkDeleteQuickAccessHandlerInterface.php
 src/Core/Domain/QuickAccess/CommandHandler/EditQuickAccessHandlerInterface.php
 src/Core/Domain/QuickAccess/QueryHandler/GetQuickAccessForEditingHandlerInterface.php
+src/Core/Domain/BusinessEntity/Command/AddBusinessEntityCommand.php
+src/Core/Domain/BusinessEntity/Exception/BusinessEntityBillingAddressConstraintException.php
+src/Core/Domain/BusinessEntity/Exception/UnableToCreateBusinessEntityAddress.php
+src/Core/Domain/BusinessEntity/Exception/BusinessEntityConstraintException.php
+src/Core/Domain/BusinessEntity/Exception/BusinessEntityException.php
+src/Core/Domain/BusinessEntity/ValueObject/BusinessEntityId.php
+src/Core/Domain/BusinessEntity/ValueObject/BusinessEntityGeneralInformation.php
+src/Core/Domain/BusinessEntity/ValueObject/BusinessEntityBillingAddress.php
+src/Core/Domain/BusinessEntity/ValueObject/AbstractBusinessEntityAddress.php
+src/Core/Domain/BusinessEntity/ValueObject/BusinessEntityShippingAddress.php
+src/Core/Domain/BusinessEntity/CommandHandler/AddBusinessEntityHandlerInterface.php
 src/Core/Domain/CartRule/CartRuleSettings.php
 src/Core/Domain/CartRule/Query/SearchCartRules.php
 src/Core/Domain/CartRule/QueryResult/FoundCartRule.php
@@ -8653,6 +8688,14 @@ src/Core/Domain/Product/Combination/QueryHandler/SearchProductCombinationsHandle
 src/Core/Domain/Product/Combination/QueryHandler/SearchProductCombinationsHandler.php
 src/Core/Domain/Product/Combination/QueryHandler/GetCombinationIdsHandler.php
 src/Core/Domain/Product/Combination/QueryHandler/GetCombinationIdsHandlerInterface.php
+src/Core/Domain/Product/Combination/FeatureValue/Command/RemoveAllFeatureValuesFromCombinationCommand.php
+src/Core/Domain/Product/Combination/FeatureValue/Command/SetCombinationFeatureValuesCommand.php
+src/Core/Domain/Product/Combination/FeatureValue/Query/GetCombinationFeatureValues.php
+src/Core/Domain/Product/Combination/FeatureValue/QueryResult/CombinationFeatureValue.php
+src/Core/Domain/Product/Combination/FeatureValue/ValueObject/CombinationFeatureValue.php
+src/Core/Domain/Product/Combination/FeatureValue/CommandHandler/SetCombinationFeatureValuesHandlerInterface.php
+src/Core/Domain/Product/Combination/FeatureValue/CommandHandler/RemoveAllFeatureValuesFromCombinationHandlerInterface.php
+src/Core/Domain/Product/Combination/FeatureValue/QueryHandler/GetCombinationFeatureValuesHandlerInterface.php
 src/Core/Domain/Product/Pack/Command/RemoveAllProductsFromPackCommand.php
 src/Core/Domain/Product/Pack/Command/SetPackProductsCommand.php
 src/Core/Domain/Product/Pack/Query/GetPackedProducts.php
@@ -9238,6 +9281,7 @@ src/Core/Form/IdentifiableObject/CommandBuilder/Product/PackedProductsCommandsBu
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationCommandsBuilderInterface.php
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/UpdateCombinationStockAvailableCommandsBuilder.php
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationImagesCommandsBuilder.php
+src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationFeatureValuesCommandsBuilder.php
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationSuppliersCommandsBuilder.php
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/UpdateCombinationCommandsBuilder.php
 src/Core/Form/IdentifiableObject/CommandBuilder/Product/Combination/CombinationCommandsBuilder.php
@@ -9277,6 +9321,7 @@ src/Core/Form/IdentifiableObject/DataProvider/ZoneFormDataProvider.php
 src/Core/Form/IdentifiableObject/DataProvider/AliasFormDataProvider.php
 src/Core/Form/IdentifiableObject/DataProvider/FormDataProviderInterface.php
 src/Core/Form/IdentifiableObject/DataProvider/QuickAccessFormDataProvider.php
+src/Core/Form/IdentifiableObject/DataProvider/BusinessEntityFormDataProvider.php
 src/Core/Form/IdentifiableObject/DataProvider/ManufacturerFormDataProvider.php
 src/Core/Form/IdentifiableObject/DataProvider/ProfileFormDataProvider.php
 src/Core/Form/IdentifiableObject/DataProvider/SplitShipmentFormDataProvider.php
@@ -9330,6 +9375,7 @@ src/Core/Form/IdentifiableObject/DataHandler/CmsPageCategoryFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/AttachmentFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/CatalogPriceRuleFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/MetaFormDataHandler.php
+src/Core/Form/IdentifiableObject/DataHandler/BusinessEntityFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/OrderReturnStateFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/ReturnProductFormDataHandler.php
 src/Core/Form/IdentifiableObject/DataHandler/FeatureFormDataHandler.php
@@ -9793,6 +9839,7 @@ src/PrestaShopBundle/Controller/Admin/Configure/ShopParameters/TagController.php
 src/PrestaShopBundle/Controller/Admin/Configure/ShopParameters/MaintenanceController.php
 src/PrestaShopBundle/Controller/Admin/Configure/ShopParameters/ContactsController.php
 src/PrestaShopBundle/Controller/Admin/Configure/ShowcaseCardController.php
+src/PrestaShopBundle/Controller/Admin/DashboardController.php
 src/PrestaShopBundle/Controller/Admin/ErrorController.php
 src/PrestaShopBundle/Controller/Admin/LegacyController.php
 src/PrestaShopBundle/Controller/Admin/FrameworkBundleAdminController.php
@@ -9905,6 +9952,7 @@ src/PrestaShopBundle/ApiPlatform/Provider/EmptyBodyDeserializerProvider.php
 src/PrestaShopBundle/ApiPlatform/Provider/QueryListProvider.php
 src/PrestaShopBundle/ApiPlatform/Provider/QueryProvider.php
 src/PrestaShopBundle/ApiPlatform/DomainObjectDetector.php
+src/PrestaShopBundle/ApiPlatform/ExperimentalEndpointsCheckerTrait.php
 src/PrestaShopBundle/ApiPlatform/OpenApi/FileUploadRequestBodyBuilder.php
 src/PrestaShopBundle/ApiPlatform/OpenApi/Factory/CQRSOpenApiFactory.php
 src/PrestaShopBundle/ApiPlatform/OpenApi/Adapter/ExtraPropertiesSchemaAdapter.php
@@ -9929,6 +9977,7 @@ src/PrestaShopBundle/ApiPlatform/Metadata/CQRSCommand.php
 src/PrestaShopBundle/ApiPlatform/Metadata/PositionCollection.php
 src/PrestaShopBundle/ApiPlatform/Metadata/PaginatedList.php
 src/PrestaShopBundle/ApiPlatform/Metadata/CQRSPaginate.php
+src/PrestaShopBundle/ApiPlatform/Metadata/Resource/Factory/CoreVersionCompatibilityMetadataCollectionFactoryDecorator.php
 src/PrestaShopBundle/ApiPlatform/Metadata/Resource/Factory/CQRSNotFoundMetadataCollectionFactoryDecorator.php
 src/PrestaShopBundle/ApiPlatform/Metadata/Resource/Factory/ExperimentalOperationsMetadataCollectionFactoryDecorator.php
 src/PrestaShopBundle/ApiPlatform/Metadata/CQRSPartialUpdate.php
@@ -10060,6 +10109,7 @@ src/PrestaShopBundle/Resources/config/routing/admin/sell/customer_service/order_
 src/PrestaShopBundle/Resources/config/routing/admin/sell/customer_service/order_return.yml
 src/PrestaShopBundle/Resources/config/routing/admin/sell/customer_service/customer_threads.yml
 src/PrestaShopBundle/Resources/config/routing/admin/sell/customer_service/_customer_service.yml
+src/PrestaShopBundle/Resources/config/routing/admin/dashboard.yml
 src/PrestaShopBundle/Resources/config/routing/admin/_errors.yml
 src/PrestaShopBundle/Resources/config/routing/admin/_security.yml
 src/PrestaShopBundle/Resources/config/routing/admin/_legacy.yml
@@ -10111,6 +10161,7 @@ src/PrestaShopBundle/Resources/config/services/adapter/customer.yml
 src/PrestaShopBundle/Resources/config/services/adapter/email.yml
 src/PrestaShopBundle/Resources/config/services/adapter/mail_template.yml
 src/PrestaShopBundle/Resources/config/services/adapter/manufacturer.yml
+src/PrestaShopBundle/Resources/config/services/adapter/business_entity.yml
 src/PrestaShopBundle/Resources/config/services/adapter/webservice.yml
 src/PrestaShopBundle/Resources/config/services/adapter/shop.yml
 src/PrestaShopBundle/Resources/config/services/adapter/cms_page_category.yml
@@ -10130,6 +10181,7 @@ src/PrestaShopBundle/Resources/config/services/adapter/tab.yml
 src/PrestaShopBundle/Resources/config/services/adapter/employee.yml
 src/PrestaShopBundle/Resources/config/services/adapter/currency.yml
 src/PrestaShopBundle/Resources/config/services/adapter/admin.yml
+src/PrestaShopBundle/Resources/config/services/adapter/product/_combination_feature_value.yml
 src/PrestaShopBundle/Resources/config/services/adapter/product/_pack.yml
 src/PrestaShopBundle/Resources/config/services/adapter/product/_image.yml
 src/PrestaShopBundle/Resources/config/services/adapter/product/_specific_prices.yml
@@ -10293,6 +10345,8 @@ src/PrestaShopBundle/Resources/config/services/core/translation.yml
 src/PrestaShopBundle/Resources/config/services/alias.yml
 src/PrestaShopBundle/Resources/views/base.html.twig
 src/PrestaShopBundle/Resources/views/Admin/macros.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Dashboard/form_theme.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Dashboard/index.html.twig
 src/PrestaShopBundle/Resources/views/Admin/layout.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Common/_partials/_sidebar.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Common/_partials/_form_field.html.twig
@@ -10396,7 +10450,10 @@ src/PrestaShopBundle/Resources/views/Admin/Sell/CustomerService/OrderMessage/Blo
 src/PrestaShopBundle/Resources/views/Admin/Sell/CustomerService/OrderMessage/edit.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/CustomerService/OrderMessage/create.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/CustomerService/OrderMessage/index.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Sell/BusinessEntity/Blocks/form.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Sell/BusinessEntity/Blocks/address_card.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/BusinessEntity/list.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Sell/BusinessEntity/create.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/CatalogPriceRule/Blocks/form.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/CatalogPriceRule/edit.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/CatalogPriceRule/create.html.twig
@@ -10487,6 +10544,7 @@ src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/SpecificPrice/Fo
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/SpecificPrice/create.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/header.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/features.html.twig
+src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/combination_features.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/customizations.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/combination_listing.html.twig
 src/PrestaShopBundle/Resources/views/Admin/Sell/Catalog/Product/FormTheme/extra_modules.html.twig
@@ -10982,6 +11040,7 @@ src/PrestaShopBundle/Entity/Repository/TranslationRepository.php
 src/PrestaShopBundle/Entity/Repository/AttributeRepository.php
 src/PrestaShopBundle/Entity/Repository/RequestSqlRepository.php
 src/PrestaShopBundle/Entity/Repository/LangRepository.php
+src/PrestaShopBundle/Entity/Repository/BusinessEntityRepository.php
 src/PrestaShopBundle/Entity/Repository/TabLangRepository.php
 src/PrestaShopBundle/Entity/Repository/ShopRepository.php
 src/PrestaShopBundle/Entity/ImageType.php
@@ -11083,12 +11142,16 @@ src/PrestaShopBundle/Form/Admin/AdvancedParameters/Performance/CachingType.php
 src/PrestaShopBundle/Form/Admin/Catalog/Category/AbstractCategoryType.php
 src/PrestaShopBundle/Form/Admin/Catalog/Category/RootCategoryType.php
 src/PrestaShopBundle/Form/Admin/Catalog/Category/CategoryType.php
+src/PrestaShopBundle/Form/Admin/Dashboard/DashboardDateRangeType.php
 src/PrestaShopBundle/Form/Admin/Sell/CustomerService/OrderMessageType.php
 src/PrestaShopBundle/Form/Admin/Sell/CustomerService/ReplyToCustomerThreadType.php
 src/PrestaShopBundle/Form/Admin/Sell/CustomerService/OrderReturn/OrderReturnOptionsType.php
 src/PrestaShopBundle/Form/Admin/Sell/CustomerService/OrderReturn/OrderReturnOptionsFormDataProvider.php
 src/PrestaShopBundle/Form/Admin/Sell/CustomerService/OrderReturn/OrderReturnType.php
 src/PrestaShopBundle/Form/Admin/Sell/CatalogPriceRule/CatalogPriceRuleType.php
+src/PrestaShopBundle/Form/Admin/Sell/BusinessEntity/BusinessEntityAddressType.php
+src/PrestaShopBundle/Form/Admin/Sell/BusinessEntity/BusinessEntityType.php
+src/PrestaShopBundle/Form/Admin/Sell/BusinessEntity/BusinessEntityGeneralInformationType.php
 src/PrestaShopBundle/Form/Admin/Sell/Catalog/AttributeGroupType.php
 src/PrestaShopBundle/Form/Admin/Sell/Catalog/FeatureType.php
 src/PrestaShopBundle/Form/Admin/Sell/Catalog/FeatureValueType.php
@@ -11173,6 +11236,10 @@ src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/CombinationManagerType.
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/BulkCombinationType.php
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/CombinationListType.php
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/BulkCombinationReferencesType.php
+src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/Feature/CombinationFeaturesType.php
+src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/Feature/CombinationFeatureCollectionItemType.php
+src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/Feature/CombinationFeatureCollectionType.php
+src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/Feature/CombinationFeatureValueType.php
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/LowStockThresholdType.php
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/CombinationPriceImpactType.php
 src/PrestaShopBundle/Form/Admin/Sell/Product/Combination/CombinationStockType.php
@@ -11536,6 +11603,7 @@ src/Adapter/QuickAccess/CommandHandler/EditQuickAccessHandler.php
 src/Adapter/QuickAccess/QueryHandler/GetQuickAccessForEditingHandler.php
 src/Adapter/Session/Repository/CustomerSessionRepository.php
 src/Adapter/Session/Repository/EmployeeSessionRepository.php
+src/Adapter/BusinessEntity/CommandHandler/AddBusinessEntityHandler.php
 src/Adapter/Routing/LegacyHelperLinkBuilder.php
 src/Adapter/Routing/AdminLinkBuilder.php
 src/Adapter/Kpi/EnabledLanguagesKpi.php
@@ -12291,6 +12359,10 @@ src/Adapter/Product/Combination/QueryHandler/GetEditableCombinationsListHandler.
 src/Adapter/Product/Combination/QueryHandler/SearchCombinationsForAssociationHandler.php
 src/Adapter/Product/Combination/QueryHandler/GetCombinationSuppliersHandler.php
 src/Adapter/Product/Combination/QueryHandler/GetCombinationForEditingHandler.php
+src/Adapter/Product/Combination/FeatureValue/Update/CombinationFeatureValueUpdater.php
+src/Adapter/Product/Combination/FeatureValue/CommandHandler/SetCombinationFeatureValuesHandler.php
+src/Adapter/Product/Combination/FeatureValue/CommandHandler/RemoveAllFeatureValuesFromCombinationHandler.php
+src/Adapter/Product/Combination/FeatureValue/QueryHandler/GetCombinationFeatureValuesHandler.php
 src/Adapter/Product/Pack/Repository/ProductPackRepository.php
 src/Adapter/Product/Pack/Update/ProductPackUpdater.php
 src/Adapter/Product/Pack/CommandHandler/RemoveAllProductsFromPackHandler.php
